@@ -108,15 +108,15 @@ Stage 06,Week 11,14-12-25 (SUNDAY)
 ,,27-12-25 (SATURDAY),,,,Primed and painted frame base.
 ,,Week's Objective,,Atmega programming | Depth analysis research | Driver control analysis using espcam,Start learning about system design. | Start setting up app architecture. | Research on TCP. | Establish live feed from esp CAM. | Establish connection with two esp32.,CAD Design of Implementable Core Block. | CAD Design of Exhaust Branches. | Core Block Mount Base Plate. | Core Block Mount Top Cover. | Reservoir Connectors. | Drill Holes for Reservoir. | Drill Holes for Electronics Bay. | Drill Holes for Top Hatch. | Drill Holes for Core Block Mount. | Start Working on Painting the Frame. | CAD design of core block panels. | CAD design of core block and exhaust branches interface. | CAD design of exhaust branches. | CAD design of mid layer (with PVC foam) for incubator area. | CAD design of mid layer (with polycarbonate) for incubator area base. | Mark and cut foam pieces for incubator area mid layer. | Start assembling foam mid layer. | Start building core block. | CAD design of AMC. | Prime the frame. | Paint the frame. | Map out auxillary system control and feeback lines. | List out immediately needed components for emcu. | Place orders.
 ,,Week's Progress,,,"1-40, 2-70, 3-50, 4-60","1,10,11,12,22,23,24,19-25,21-25"
-Stage 07,Week 13,28-12-25 (SUNDAY),,,,Primed and painted front and back side panels.
-,,29-12-25 (MONDAY),,,,Primed and painted rest of the side panels and side hatch frame.
+Stage 07,Week 13,28-12-25 (SUNDAY),,,,Primed and painted front and back side panels. CAD designed reservoir connectors.
+,,29-12-25 (MONDAY),,,,Primed and painted rest of the side panels and side hatch frame. CAD designed reservoir base bridge.
 ,,30-12-25 (TUESDAY),,,,3D printed core block bot frame parts.
 ,,31-12-25 (WEDNESDAY),,,,CAD design of mid layer for soil using PC done.
 ,,01-01-26 (THURSDAY),,,,3D printed core block side frame base.
 ,,02-01-26 (FRIDAY)
 ,,03-01-26 (SATURDAY)
-,,Week's Objective,,,,CAD Design of Exhaust Branches. | Core Block Mount Base Plate. | Core Block Mount Top Cover. | Reservoir Connectors. | Drill Holes for Reservoir. | Drill Holes for Electronics Bay. | Drill Holes for Top Hatch. | Drill Holes for Core Block Mount. | CAD design of exhaust branches. | CAD design of mid layer (with PVC foam) for incubator area. | CAD design of mid layer (with polycarbonate) for incubator area base. | Mark and cut foam pieces for incubator area mid layer. | Start assembling foam mid layer. | Start building core block. | CAD design of AMC. | Prime the frame. | Paint the frame. 3D print mid frames. | 3D print bot frames. | 3D print side frames.
-,,Week's Progress
+,,Week's Objective,,,,CAD Design of Exhaust Branches. | Core Block Mount Base Plate. | Core Block Mount Top Cover. | Reservoir Connectors. | Drill Holes for Reservoir. | Drill Holes for Electronics Bay. | Drill Holes for Top Hatch. | Drill Holes for Core Block Mount. | CAD design of exhaust branches. | CAD design of mid layer (with PVC foam) for incubator area. | CAD design of mid layer (with polycarbonate) for incubator area base. | Mark and cut foam pieces for incubator area mid layer. | Start assembling foam mid layer. | Start building core block. | CAD design of AMC. | Prime the frame. | Paint the frame. | 3D print mid frames. | 3D print bot frames. | 3D print side frames.
+,,Week's Progress,,,,"4-50,11,16-60,17-60,18-65,19-90,20-30"
 ,Week 14,04-01-26 (SUNDAY)
 ,,05-01-26 (MONDAY)
 ,,06-01-26 (TUESDAY)

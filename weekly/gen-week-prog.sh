@@ -95,14 +95,27 @@ fill_week_data() {
     local i
     local date_string
     local tmp
+    local date_string_day
+    local date_string_month
+    local date_string_year
 
     for i in $(seq 0 $(date "+%w") | sort -r)
     do
-        date_string="@$(date -d "$((-24 * $i + $Hour_Offset)) hours" "+%d-%m-%g")"
+        ## There is a bug in the date command, weird. Or I am wrong.
+        # TODO: Look into it
+        # Ran `date -d "-120 hours" "+%d-%m-%g" on 03-01-26 and got "29-12-26"`
+        # Should've been "29-12-25"
+        # date_string="@$(date -d "$((-24 * $i + $Hour_Offset)) hours" "+%d-%m-%g")"
+        date_string_day="$(date -d "$((-24 * $i + $Hour_Offset)) hours" "+%d")"
+        date_string_month="$(date -d "$((-24 * $i + $Hour_Offset)) hours" "+%m")"
+        date_string_year="$(date -d "$((-24 * $i + $Hour_Offset)) hours" | awk '{print $7}' | sed "s/^20//")"
+        date_string="@${date_string_day}-${date_string_month}-${date_string_year}"
+
         Week_Dates+=("$(date -d "$((-24 * $i + $Hour_Offset)) hours" "+%d")")
         Week_Months+=("$(date -d "$((-24 * $i + $Hour_Offset)) hours" "+%m")")
-        Week_Years+=("$(date -d "$((-24 * $i + $Hour_Offset)) hours" "+%G")")
+        Week_Years+=("$(date -d "$((-24 * $i + $Hour_Offset)) hours" | awk '{print $7}')")
         tmp=$(grep "$date_string" <<<"$1")
+
         if [[ "$tmp" == "" ]]; then
             echo "Couldn't find data for $date_string from the csv file. This shouldn't have happened. Returning..."
             return 1
@@ -112,11 +125,19 @@ fill_week_data() {
 
     for i in $(seq $(($(date "+%w") + 1)) 6 | sort -r)
     do
-        date_string="@$(date -d "$((24 * (7 - $i) + $Hour_Offset)) hours" "+%d-%m-%g")"
+        ## Bug
+        # date_string="@$(date -d "$((24 * (7 - $i) + $Hour_Offset)) hours" "+%d-%m-%g")"
+
+        date_string_day="$(date -d "$((24 * (7 - $i) + $Hour_Offset)) hours" "+%d")"
+        date_string_month="$(date -d "$((24 * (7 - $i) + $Hour_Offset)) hours" "+%m")"
+        date_string_year="$(date -d "$((24 * (7 - $i) + $Hour_Offset)) hours" | awk '{print $7}' | sed "s/^20//")"
+        date_string="@${date_string_day}-${date_string_month}-${date_string_year}"
+
         Week_Dates+=("$(date -d "$((24 * (7 - $i) + $Hour_Offset)) hours" "+%d")")
         Week_Months+=("$(date -d "$((24 * (7 - $i) + $Hour_Offset)) hours" "+%m")")
-        Week_Years+=("$(date -d "$((24 * (7 - $i) + $Hour_Offset)) hours" "+%G")")
+        Week_Years+=("$(date -d "$((24 * (7 - $i) + $Hour_Offset)) hours" | awk '{print $7}')")
         tmp=$(grep "$date_string" <<<"$1")
+
         if [[ "$tmp" == "" ]]; then
             echo "Couldn't find data for $date_string from the csv file. This shouldn't have happened. Returning..."
             return 1
@@ -140,8 +161,8 @@ gen_gsheet_data() {
     Start_Month_Num="$(date -d "$((-24 * $(date "+%w") + $Hour_Offset)) hours" "+%m")"
     End_Month_Num="$(date -d "$((24 * (6 - $(date "+%w")) + $Hour_Offset)) hours" "+%m")"
 
-    Start_Year="$(date -d "$((-24 * $(date "+%w") + $Hour_Offset)) hours" "+%G")"
-    End_Year="$(date -d "$((24 * (6 - $(date "+%w")) + $Hour_Offset)) hours" "+%G")"
+    Start_Year="$(date -d "$((-24 * $(date "+%w") + $Hour_Offset)) hours" | awk '{print $7}')"
+    End_Year="$(date -d "$((24 * (6 - $(date "+%w")) + $Hour_Offset)) hours" | awk '{print $7}')"
 
     printf "\\def\\weekRange{${Start_Month} ${Week_Dates[0]} ${Start_Year} -- ${End_Month} ${Week_Dates[6]} ${End_Year}}\n\n"
 
